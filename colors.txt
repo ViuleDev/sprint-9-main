@@ -1,0 +1,5 @@
+dark: #2D3748
+lighter: #1C2A35
+text: #FEFFFF
+light green: #00C58E
+dark green: #108775
