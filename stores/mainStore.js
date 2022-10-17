@@ -30,6 +30,9 @@ export const useMainStore = defineStore("main", {
     displaySignupModal: false,
     displayLoginModal: false,
 
+    email: "",
+    password: "",
+    isSignUp: false,
   }),
 
   getters: {

@@ -1,7 +1,6 @@
 <script setup>
-const email = ref("");
-const password = ref("");
-const isSignUp = ref(false);
+import { useMainStore } from "@/stores/mainStore";
+const store = useMainStore();
 </script>
 
 <template>
