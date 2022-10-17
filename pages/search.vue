@@ -6,7 +6,7 @@ const store = useMainStore();
 <template>
   <div>
     <h1 class="my-4">Looking for a movie?</h1>
-    <form class="form text-center" @submit.prevent="store.searchMovie">
+    <form class="form text-center my-4" @submit.prevent="store.searchMovie">
       <input type="text" v-model="store.searchQuery" />
       <button class="btn custom-btn">Search</button>
     </form>

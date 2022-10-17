@@ -21,7 +21,11 @@ const props = defineProps(["movie", "route", "imgSrc"]);
   font-weight: 400;
 }
 .movie-title:hover {
-  color: #feffff;
+  color: #f1f1f1;
+}
+
+.movie-table-card img {
+  border-radius: 10px;
 }
 
 .movie a {

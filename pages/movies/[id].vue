@@ -53,6 +53,10 @@ store.fetchSingleMovie(id);
   position: relative;
 }
 
+.movie-poster img {
+  border-radius: 10px;
+}
+
 .movie-details {
   background: rgba(0, 0, 0, 0.4);
   color: #f1f1f1;

@@ -13,6 +13,11 @@
         <a href="#">About MovieMovies</a> | <a href="#">Privacy Policy</a> | <a href="#">FAQ</a> |
         <a href="#">Contact Us</a>
       </div>
+
+      <div class="creds">
+        <p>Powered By</p>
+        <img src="@/assets/img/moviedb.svg" alt="" />
+      </div>
     </footer>
   </div>
 </template>
@@ -53,5 +58,9 @@ footer div {
 
 .links a:hover {
   color: #f1f1f1;
+}
+
+.creds img {
+  width: 300px;
 }
 </style>

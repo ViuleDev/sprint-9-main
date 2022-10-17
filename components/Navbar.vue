@@ -22,7 +22,7 @@ const store = useMainStore();
                 <NuxtLink to="/" class="nav-link" aria-current="page">Home</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/movies" class="nav-link">Popular Movies</NuxtLink>
+                <NuxtLink to="/movies" class="nav-link">Movies</NuxtLink>
               </li>
               <li class="nav-item">
                 <NuxtLink to="/search" class="nav-link">Search Movies</NuxtLink>
