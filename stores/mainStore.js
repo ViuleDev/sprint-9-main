@@ -29,6 +29,7 @@ export const useMainStore = defineStore("main", {
 
     displaySignupModal: false,
     displayLoginModal: false,
+
   }),
 
   getters: {
@@ -126,18 +127,6 @@ export const useMainStore = defineStore("main", {
       } catch (err) {
         console.log(err);
       }
-    },
-
-    async signIn() {
-      let email = "millertrey@hotmail.com";
-      let password = "12313241";
-      const credentials = await createUser(email, password);
-      console.log("credentials", credentials);
-    },
-
-    async signOut() {
-      const result = await signOutUser();
-      console.log("result: ", result);
     },
   },
 });
