@@ -5,7 +5,14 @@ const store = useMainStore();
 
 <template>
   <div @click.self="store.toggleSignupModal()" class="modal-wrapper">
-    <div class="custom-modal text-center">I AM THE SIGN UP MODAL MATE</div>
+    <div class="custom-modal text-center">
+      I AM THE SIGN UP MODAL MATE
+      <form @submit.prevent="store.signUp">
+        <input type="email" placeholder="Your email address" v-model="store.email" />
+        <input type="password" v-model="store.password" />
+        <button class="btn custom-btn">Sign Up</button>
+      </form>
+    </div>
   </div>
 </template>
 

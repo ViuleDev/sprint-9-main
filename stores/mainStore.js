@@ -32,7 +32,9 @@ export const useMainStore = defineStore("main", {
 
     email: "",
     password: "",
-    isSignUp: false,
+    loggedIn: false,
+    currentUser: null,
+    users: [],
   }),
 
   getters: {
@@ -130,6 +132,31 @@ export const useMainStore = defineStore("main", {
       } catch (err) {
         console.log(err);
       }
+    },
+
+    signUp() {
+      this.currentUser = {
+        email: this.email,
+        password: this.password,
+      };
+
+      if (this.users.length === 0) {
+        this.users.push(this.currentUser);
+        this.displaySignupModal = false;
+      } else {
+        const userEmails = this.users.map((user) => user.email.toLowerCase());
+
+        if (!userEmails.includes(this.currentUser.email.toLowerCase())) {
+          this.users.push(this.currentUser);
+          this.displaySignupModal = false;
+          alert("User Registered succesfully");
+        } else {
+          alert("User already registered");
+        }
+      }
+
+      console.log("user", this.currentUser);
+      console.log("users", this.users);
     },
   },
 });
