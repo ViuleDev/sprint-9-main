@@ -158,5 +158,17 @@ export const useMainStore = defineStore("main", {
       console.log("user", this.currentUser);
       console.log("users", this.users);
     },
+
+    logIn(loginData) {
+      if (this.users.length) {
+        this.users.some((user) => {
+          if (user.email === loginData.email && user.password === loginData.password) {
+            this.loggedIn = true;
+          } else {
+            this.loggedIn = false;
+          }
+        });
+      }
+    },
   },
 });

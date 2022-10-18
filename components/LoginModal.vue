@@ -1,11 +1,27 @@
 <script setup>
 import { useMainStore } from "@/stores/mainStore";
 const store = useMainStore();
+const loginEmail = ref("");
+const loginPassword = ref("");
+
+function callLogin() {
+  store.logIn({
+    email: loginEmail.value,
+    password: loginPassword.value,
+  });
+}
 </script>
 
 <template>
   <div @click.self="store.toggleLoginModal()" class="modal-wrapper">
-    <div class="custom-modal text-center">I AM THE LOGIN MODAL BRO</div>
+    <div class="custom-modal text-center">
+      I AM THE LOGIN MODAL BRO
+      <form @submit.prevent="callLogin">
+        <input type="email" placeholder="Your email address" v-model="loginEmail" />
+        <input type="password" v-model="loginPassword" />
+        <button class="btn custom-btn">Log In</button>
+      </form>
+    </div>
   </div>
 </template>
 
