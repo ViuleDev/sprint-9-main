@@ -154,7 +154,7 @@ export const useMainStore = defineStore("main", {
 
       // We register the first user if none are registered
       if (this.users.length === 0) {
-        this.signUpMsg = "User Registered succesfully";
+        this.signUpMsg = "User registered succesfully";
         this.users.push(this.currentUser);
       }
       // If there are already users signed up, we create an array that stores only the emails of the registered users.
@@ -164,7 +164,7 @@ export const useMainStore = defineStore("main", {
         const userEmails = this.users.map((user) => user.email.toLowerCase());
 
         if (!userEmails.includes(this.currentUser.email.toLowerCase())) {
-          this.signUpMsg = "User Registered succesfully!";
+          this.signUpMsg = "User registered succesfully!";
           this.users.push(this.currentUser);
           this.displaySignupModal = false;
         } else {
