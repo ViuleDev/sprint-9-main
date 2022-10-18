@@ -15,8 +15,8 @@ function callLogin() {
 <template>
   <div @click.self="store.toggleLoginModal()" class="modal-wrapper">
     <div class="custom-modal text-center">
-      I AM THE LOGIN MODAL BRO
-      <form @submit.prevent="callLogin">
+      <form class="custom-form" @submit.prevent="callLogin">
+        <h3>LOG IN</h3>
         <input type="email" placeholder="Your email address" v-model="loginEmail" />
         <input type="password" v-model="loginPassword" />
         <button class="btn custom-btn">Log In</button>

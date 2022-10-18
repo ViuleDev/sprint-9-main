@@ -1,17 +1,23 @@
 <script setup>
 import { useMainStore } from "@/stores/mainStore";
 const store = useMainStore();
+
+const toggleModals = () => {
+  store.displaySignupModal = false;
+  store.displayLoginModal = true;
+};
 </script>
 
 <template>
   <div @click.self="store.toggleSignupModal()" class="modal-wrapper">
     <div class="custom-modal text-center">
-      I AM THE SIGN UP MODAL MATE
-      <form @submit.prevent="store.signUp">
+      <form class="custom-form" @submit.prevent="store.signUp">
+        <h3>SIGN UP</h3>
         <input type="email" placeholder="Your email address" v-model="store.email" />
-        <input type="password" v-model="store.password" />
+        <input type="password" placeholder="Password" v-model="store.password" />
         <button class="btn custom-btn">Sign Up</button>
         <p v-if="store.signUpMsg">{{ store.signUpMsg }}</p>
+        <a href="#" @click="toggleModals">Already registered? Login!</a>
       </form>
     </div>
   </div>

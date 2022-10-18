@@ -31,3 +31,27 @@ a {
   border: 1px solid #00c58e;
   backdrop-filter: blur(5px);
 }
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-form * {
+  margin-bottom: 1rem;
+}
+
+.custom-form input {
+  border: 1px solid #00c58e;
+  background: transparent;
+  color: #00c58e;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.custom-form a {
+  color: #00c58e;
+}
