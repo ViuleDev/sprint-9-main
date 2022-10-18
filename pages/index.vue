@@ -5,6 +5,6 @@ const store = useMainStore();
 
 <template>
   <div>
-    <Hero :heading="'Explore our incredible movies database!'" />
+    <Hero :heading="'Explore our movies database!'" />
   </div>
 </template>

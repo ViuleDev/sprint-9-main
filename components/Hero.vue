@@ -7,8 +7,8 @@ const props = defineProps(["heading"]);
     <div class="hero">
       <h1 class="my-3">{{ props.heading }}</h1>
       <div class="text-center">
-        <Button class="my-1" :text="'POPULAR MOVIES'" :navigate="'/movies'" />
         <Button :text="'SEARCH MOVIES'" :navigate="'/search'" />
+        <Button class="my-1" :text="'POPULAR MOVIES'" :navigate="'/movies'" />
       </div>
     </div>
   </div>
