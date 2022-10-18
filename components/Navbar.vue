@@ -28,6 +28,12 @@ const store = useMainStore();
                 <NuxtLink to="/search" class="nav-link">Search Movies</NuxtLink>
               </li>
               <li class="nav-item">
+                <NuxtLink to="/favourites" class="nav-link" v-if="store.loggedIn"
+                  >My Movies
+                  <sup class="movie-counter">{{ store.favouriteMovies.length }}</sup>
+                </NuxtLink>
+              </li>
+              <li class="nav-item">
                 <button class="btn custom-outline-btn mb-2 me-2" @click="store.toggleSignupModal()" v-if="!store.loggedIn">Sign Up</button>
               </li>
               <li class="nav-item">
@@ -77,5 +83,9 @@ const store = useMainStore();
   font-weight: 700;
   font-size: 1.7rem;
   margin: 0;
+}
+
+.movie-counter {
+  font-weight: 900;
 }
 </style>

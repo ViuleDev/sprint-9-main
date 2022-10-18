@@ -6,4 +6,8 @@ export default defineNuxtRouteMiddleware((to) => {
     store.toggleLoginModal();
     return navigateTo("/");
   }
+  if (!store.loggedIn && to.path === "/search") {
+    store.toggleLoginModal();
+    return navigateTo("/");
+  }
 });

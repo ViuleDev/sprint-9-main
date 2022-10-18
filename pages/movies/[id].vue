@@ -6,6 +6,11 @@ const route = useRoute();
 const id = route.params.id;
 
 store.fetchSingleMovie(id);
+
+const addToFavs = (movie) => {
+  console.log("double clicking movie poster", movie);
+  store.myMovies(movie);
+};
 </script>
 
 <template>
@@ -16,9 +21,10 @@ store.fetchSingleMovie(id);
         <div class="movie-card">
           <div class="movie-title text-center my-3">
             <h2>{{ store.movieDetail.title }}</h2>
+            <p>Double click on the movie poster to add it to your favourite list!</p>
           </div>
           <div class="movie-poster">
-            <img :src="`https://image.tmdb.org/t/p/w300${store.movieDetail.poster_path}`" alt="Movie Poster" />
+            <img :src="`https://image.tmdb.org/t/p/w300${store.movieDetail.poster_path}`" alt="Movie Poster" @dblclick="addToFavs(store.movieDetail)" />
           </div>
           <div class="movie-details p-3">
             <p>{{ store.movieDetail.overview }}</p>
@@ -62,6 +68,11 @@ store.fetchSingleMovie(id);
   color: #f1f1f1;
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+.movie-title p {
+  font-size: 0.9rem;
+  color: #f1f1f1;
 }
 
 @media (max-width: 991px) {

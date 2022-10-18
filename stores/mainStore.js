@@ -27,6 +27,10 @@ export const useMainStore = defineStore("main", {
     foundMoviesPage: 1,
     toggleLoadDataButton: false,
 
+    // Favourite movies array
+    favouriteMovies: [],
+
+    // Used for conditional rendering
     displaySignupModal: false,
     displayLoginModal: false,
 
@@ -190,6 +194,18 @@ export const useMainStore = defineStore("main", {
       this.loggedIn = false;
       this.currentUser = null;
       navigateTo("/");
+    },
+
+    myMovies(movie) {
+      if (this.favouriteMovies.length === 0) {
+        this.favouriteMovies.push(movie);
+      }
+
+      const moviesID = this.favouriteMovies.map((movie) => movie.id);
+
+      if (!moviesID.includes(movie.id)) {
+        this.favouriteMovies.push(movie);
+      }
     },
   },
 });

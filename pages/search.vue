@@ -1,12 +1,16 @@
 <script setup>
 import { useMainStore } from "@/stores/mainStore";
 const store = useMainStore();
+
+definePageMeta({
+  middleware: ["auth"],
+});
 </script>
 
 <template>
   <div>
     <div class="search-hero">
-      <h4 class="text-center">Find what you watching tonight...</h4>
+      <h4 class="text-center">Find what you are watching tonight...</h4>
       <form class="form text-center my-4" @submit.prevent="store.searchMovie">
         <input type="text" v-model="store.searchQuery" />
         <button class="btn custom-btn">Search</button>
