@@ -5,6 +5,7 @@ const store = useMainStore();
 const toggleModals = () => {
   store.displaySignupModal = false;
   store.displayLoginModal = true;
+  store.loginMsg = "";
 };
 </script>
 

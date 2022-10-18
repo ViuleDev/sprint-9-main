@@ -6,6 +6,7 @@ const loginPassword = ref("");
 
 const toggleModals = () => {
   store.displaySignupModal = true;
+  store.signUpMsg = "";
   store.displayLoginModal = false;
 };
 
