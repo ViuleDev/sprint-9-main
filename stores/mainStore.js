@@ -135,28 +135,32 @@ export const useMainStore = defineStore("main", {
     },
 
     signUp() {
+      // These values are bound to the Pinia store variables using v-model inside the signup component.
       this.currentUser = {
         email: this.email,
         password: this.password,
       };
 
+      // We register the first user if none are registered
       if (this.users.length === 0) {
+        alert("User Registered succesfully");
         this.users.push(this.currentUser);
         this.displaySignupModal = false;
-      } else {
+      }
+      // If there are already users signed up, we create an array that stores only the emails of the registered users.
+      // If this array DOESN'T include the email passed from currentUser we create a new user.
+      // Else it means that the user is already registered.
+      else {
         const userEmails = this.users.map((user) => user.email.toLowerCase());
 
         if (!userEmails.includes(this.currentUser.email.toLowerCase())) {
+          alert("User Registered succesfully");
           this.users.push(this.currentUser);
           this.displaySignupModal = false;
-          alert("User Registered succesfully");
         } else {
           alert("User already registered");
         }
       }
-
-      console.log("user", this.currentUser);
-      console.log("users", this.users);
     },
 
     logIn(loginData) {
@@ -169,6 +173,10 @@ export const useMainStore = defineStore("main", {
           }
         });
       }
+    },
+
+    logOut() {
+      this.loggedIn = false;
     },
   },
 });

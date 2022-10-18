@@ -31,9 +31,8 @@ const store = useMainStore();
                 <button class="btn custom-outline-btn mb-2 me-2" @click="store.toggleSignupModal()">Sign Up</button>
               </li>
               <li class="nav-item">
-                <button class="btn custom-outline-btn" @click="store.toggleLoginModal()">
-                  <span>Log In</span>
-                </button>
+                <button class="btn custom-outline-btn" @click="store.toggleLoginModal()" v-if="!store.loggedIn">Log In</button>
+                <button class="btn custom-outline-btn" @click="store.logOut()" v-else>Log Out</button>
               </li>
             </ul>
           </div>
