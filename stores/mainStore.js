@@ -37,6 +37,7 @@ export const useMainStore = defineStore("main", {
     currentUser: null,
     users: [],
     signUpMsg: "",
+    loginMsg: "",
   }),
 
   getters: {
@@ -57,6 +58,7 @@ export const useMainStore = defineStore("main", {
     },
     toggleLoginModal() {
       this.displayLoginModal = !this.displayLoginModal;
+      this.loginMsg = "";
     },
 
     // The Movies Database API
@@ -172,15 +174,22 @@ export const useMainStore = defineStore("main", {
         this.users.some((user) => {
           if (user.email === loginData.email && user.password === loginData.password) {
             this.loggedIn = true;
+            this.loginMsg = "Succesfully logged in!";
+            navigateTo("/movies");
           } else {
             this.loggedIn = false;
+            this.loginMsg = "Wrong email and/or password!";
           }
         });
+      } else {
+        this.loginMsg = "No users in our database, signup first!";
       }
     },
 
     logOut() {
       this.loggedIn = false;
+      this.currentUser = null;
+      navigateTo("/");
     },
   },
 });

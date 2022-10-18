@@ -11,7 +11,7 @@ store.fetchSingleMovie(id);
 <template>
   <div>
     <div v-if="store.movieDetail">
-      <div class="movie-container pb-5 ps-5">
+      <div class="movie-container pb-5 ps-lg-5">
         <img :src="`https://image.tmdb.org/t/p/original${store.movieDetail.backdrop_path}`" class="backdrop" alt="Backdrop" />
         <div class="movie-card">
           <div class="movie-title text-center my-3">

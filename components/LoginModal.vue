@@ -4,12 +4,21 @@ const store = useMainStore();
 const loginEmail = ref("");
 const loginPassword = ref("");
 
-function callLogin() {
+const toggleModals = () => {
+  store.displaySignupModal = true;
+  store.displayLoginModal = false;
+};
+
+const callLogin = () => {
+  // Sending data to the store login function
   store.logIn({
     email: loginEmail.value,
     password: loginPassword.value,
   });
-}
+
+  loginEmail.value = "";
+  loginPassword.value = "";
+};
 </script>
 
 <template>
@@ -18,8 +27,10 @@ function callLogin() {
       <form class="custom-form" @submit.prevent="callLogin">
         <h3>LOG IN</h3>
         <input type="email" placeholder="Your email address" v-model="loginEmail" />
-        <input type="password" v-model="loginPassword" />
+        <input type="password" placeholder="Password" v-model="loginPassword" />
         <button class="btn custom-btn">Log In</button>
+        <p v-if="store.loginMsg">{{ store.loginMsg }}</p>
+        <a href="#" @click="toggleModals">Not registered yet? Sign up!</a>
       </form>
     </div>
   </div>

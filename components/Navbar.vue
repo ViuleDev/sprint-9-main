@@ -28,7 +28,7 @@ const store = useMainStore();
                 <NuxtLink to="/search" class="nav-link">Search Movies</NuxtLink>
               </li>
               <li class="nav-item">
-                <button class="btn custom-outline-btn mb-2 me-2" @click="store.toggleSignupModal()">Sign Up</button>
+                <button class="btn custom-outline-btn mb-2 me-2" @click="store.toggleSignupModal()" v-if="!store.loggedIn">Sign Up</button>
               </li>
               <li class="nav-item">
                 <button class="btn custom-outline-btn" @click="store.toggleLoginModal()" v-if="!store.loggedIn">Log In</button>
