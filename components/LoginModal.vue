@@ -27,6 +27,7 @@ const callLogin = () => {
     <div class="custom-modal text-center">
       <form class="custom-form" @submit.prevent="callLogin">
         <h3>LOG IN</h3>
+        <i class="fa-solid fa-right-to-bracket"></i>
         <input type="email" placeholder="Your email address" v-model="loginEmail" />
         <input type="password" placeholder="Password" v-model="loginPassword" />
         <button class="btn custom-btn">Log In</button>

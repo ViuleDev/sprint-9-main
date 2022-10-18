@@ -14,6 +14,7 @@ const toggleModals = () => {
     <div class="custom-modal text-center">
       <form class="custom-form" @submit.prevent="store.signUp">
         <h3>SIGN UP</h3>
+        <i class="fa-regular fa-address-card"></i>
         <input type="email" placeholder="Your email address" v-model="store.email" />
         <input type="password" placeholder="Password" v-model="store.password" />
         <button class="btn custom-btn">Sign Up</button>

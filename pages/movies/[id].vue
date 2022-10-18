@@ -8,7 +8,6 @@ const id = route.params.id;
 store.fetchSingleMovie(id);
 
 const addToFavs = (movie) => {
-  console.log("double clicking movie poster", movie);
   store.myMovies(movie);
 };
 </script>

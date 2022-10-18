@@ -27,8 +27,6 @@ a {
   color: #00c58e;
 }
 
-
-
 .custom-form {
   display: flex;
   flex-direction: column;
@@ -49,6 +47,8 @@ a {
   margin-right: 5px;
 }
 
-.custom-form a {
+.custom-form h3,
+.custom-form a,
+.custom-form i {
   color: #00c58e;
 }
