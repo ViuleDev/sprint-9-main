@@ -1,6 +1,10 @@
 <script setup>
 import { useMainStore } from "@/stores/mainStore";
 const store = useMainStore();
+
+definePageMeta({
+  middleware: ["auth"],
+});
 </script>
 
 <template>

@@ -5,8 +5,10 @@ export default defineNuxtRouteMiddleware((to) => {
   if (!store.loggedIn && to.path === "/movies") {
     store.toggleLoginModal();
     return navigateTo("/");
-  }
-  if (!store.loggedIn && to.path === "/search") {
+  } else if (!store.loggedIn && to.path === "/search") {
+    store.toggleLoginModal();
+    return navigateTo("/");
+  } else if (!store.loggedIn && to.path === "/favourites") {
     store.toggleLoginModal();
     return navigateTo("/");
   }
