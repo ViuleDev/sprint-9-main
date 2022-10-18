@@ -2,6 +2,11 @@
 import { useMainStore } from "@/stores/mainStore";
 const store = useMainStore();
 store.getPopularMovies();
+
+definePageMeta({
+  middleware: ["auth"],
+});
+
 </script>
 
 <template>
