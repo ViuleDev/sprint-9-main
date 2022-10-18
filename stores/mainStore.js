@@ -30,11 +30,13 @@ export const useMainStore = defineStore("main", {
     displaySignupModal: false,
     displayLoginModal: false,
 
+    /* USER MANAGEMENT */
     email: "",
     password: "",
     loggedIn: false,
     currentUser: null,
     users: [],
+    signUpMsg: "",
   }),
 
   getters: {
@@ -49,6 +51,9 @@ export const useMainStore = defineStore("main", {
     // These 2 functions are used to toggle the Signup and Login modals.
     toggleSignupModal() {
       this.displaySignupModal = !this.displaySignupModal;
+      this.signUpMsg = "";
+      this.email = "";
+      this.password = "";
     },
     toggleLoginModal() {
       this.displayLoginModal = !this.displayLoginModal;
@@ -143,9 +148,8 @@ export const useMainStore = defineStore("main", {
 
       // We register the first user if none are registered
       if (this.users.length === 0) {
-        alert("User Registered succesfully");
+        this.signUpMsg = "User Registered succesfully";
         this.users.push(this.currentUser);
-        this.displaySignupModal = false;
       }
       // If there are already users signed up, we create an array that stores only the emails of the registered users.
       // If this array DOESN'T include the email passed from currentUser we create a new user.
@@ -154,11 +158,11 @@ export const useMainStore = defineStore("main", {
         const userEmails = this.users.map((user) => user.email.toLowerCase());
 
         if (!userEmails.includes(this.currentUser.email.toLowerCase())) {
-          alert("User Registered succesfully");
+          this.signUpMsg = "User Registered succesfully!";
           this.users.push(this.currentUser);
           this.displaySignupModal = false;
         } else {
-          alert("User already registered");
+          this.signUpMsg = "The email used is already in our database.";
         }
       }
     },

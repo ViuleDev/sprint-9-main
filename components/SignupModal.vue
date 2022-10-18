@@ -11,6 +11,7 @@ const store = useMainStore();
         <input type="email" placeholder="Your email address" v-model="store.email" />
         <input type="password" v-model="store.password" />
         <button class="btn custom-btn">Sign Up</button>
+        <p v-if="store.signUpMsg">{{ store.signUpMsg }}</p>
       </form>
     </div>
   </div>
