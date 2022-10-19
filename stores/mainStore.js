@@ -166,7 +166,6 @@ export const useMainStore = defineStore("main", {
         if (!userEmails.includes(this.currentUser.email.toLowerCase())) {
           this.signUpMsg = "User registered succesfully!";
           this.users.push(this.currentUser);
-          this.displaySignupModal = false;
         } else {
           this.signUpMsg = "The email used is already in our database.";
         }
@@ -193,6 +192,7 @@ export const useMainStore = defineStore("main", {
     logOut() {
       this.loggedIn = false;
       this.currentUser = null;
+      this.favouriteMovies.length = 0;
       navigateTo("/");
     },
 
